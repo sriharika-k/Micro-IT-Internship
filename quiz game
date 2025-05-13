@@ -1,0 +1,46 @@
+questions=("which option in microsoft word is used to adjust the spacing between lines of text?",
+           "which excel function is used to concatenate multiple strings into one?",
+           "the formula to refer a cell A3 in sheet named S1 is "
+           )
+options=(
+    ("A.line spacing ","B.indentation","C.Alignment","D.page Break"),
+         ("A.MERGE","B.CONCAT","C.JOIN","D.CONCATENATE"),
+         ("A.=S1A3","B.=S1A3","C.='S1'.A3","D.=(S1)A3")
+        )
+
+answers=("A","D","B")
+guesses=[]
+score=0
+questions_num=0
+
+for question in questions:
+    print(".............")
+    print(question)
+    for option in options[questions_num]:
+        print(option)
+    guess= input("Enter(A,B,C,D):").upper()
+    guesses.append(guess)
+    if guess == answers[questions_num]:
+        score +=1
+        print("Correct !")
+    else:
+        print("Incorrect!")
+        print(f"{answers[questions_num]}is correct answer")
+        questions_num +=1
+
+
+print(".............")
+print(".....Result .......")
+print(".............")
+
+print("answers:",end="")
+for answer in answers:
+    print(answer,end="")
+print()
+print("questions:",end="")
+for question in questions:
+    print(question,end="")
+print()
+
+score= int(score/len(questions*100))
+print(f'your score is:{score}%')
